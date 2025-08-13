@@ -1,0 +1,129 @@
+
+    <html>
+      <head>
+        <title>Playwright Test Execution Report</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+          }
+          h1, h2 {
+            color: #333;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          }
+          th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+          }
+          th {
+            background-color: #f4f4f4;
+          }
+          tr:hover {
+            background-color: #f1f1f1;
+          }
+          a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>📊 Playwright Test Execution Report</h1>
+        <h2>Summary</h2>
+        <p><strong>Total Scenarios:</strong> 5 | ✅ Passed: 4 | ❌ Failed: 1 | ⚠️ Skipped: 0</p>
+        <canvas id="chart" width="200" height="200"></canvas>
+        <script>
+    const ctx = document.getElementById('chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Passed', 'Failed', 'Skipped'],
+        datasets: [{
+          data: [4, 1, 0],
+          backgroundColor: ['#4CAF50', '#F44336', '#FF9800']
+        }]
+      },
+      options: { responsive: false }
+    });
+  </script>
+        <h2>Detailed Results</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Test Case</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Passed</th>
+              <th>Failed</th>
+              <th>Skipped</th>
+              <th>Duration (ms)</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr>
+        <td><a href="creating_auth_token_using_valid_user_credentials.html">Creating auth token using valid user credentials</a></td>
+        <td>✅️</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1123</td>
+      </tr>
+    
+      <tr>
+        <td><a href="login_using_.env_credentials.html">Login using .env credentials</a></td>
+        <td>✅️</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>22157</td>
+      </tr>
+    
+      <tr>
+        <td><a href="booking_car.html">Booking car</a></td>
+        <td>✅️</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>44919</td>
+      </tr>
+    
+      <tr>
+        <td><a href="booking_car_by_changing_location.html">Booking car by changing location</a></td>
+        <td>⛔</td>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+        <td>25397</td>
+      </tr>
+    
+      <tr>
+        <td><a href="login_with_excel_data_and_store_accountid_and_status_in_excel.html">Login with Excel data and store accountId and status in Excel</a></td>
+        <td>✅️</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>86611</td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </body>
+    </html>
+  

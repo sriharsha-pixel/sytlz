@@ -1,0 +1,87 @@
+pipeline {
+    agent any
+
+    environment {
+        CI = 'true'
+        GIT_CREDENTIALS_ID = '6b17d93f-bdd9-4f5f-b8a7-a8bde809ba27' // Add your Jenkins Git credentials ID here
+        BRANCH_NAME = 'playwright' // Or your target branch name
+    }
+
+    tools {
+        allure 'Allure'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                echo 'Checking out code...'
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing Node.js dependencies...'
+                bat 'npm install'
+            }
+        }
+
+        stage('Install Playwright Browsers') {
+            steps {
+                echo 'Installing Playwright browsers...'
+                bat 'npx playwright install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                echo 'Running Playwright tests...'
+                bat 'npm test'
+            }
+        }
+
+        stage('Generate & Commit Allure Reports') {
+            steps {
+                script {
+                    echo 'Generating Allure report...'
+                    bat 'npx allure generate allure-results --clean -o allure-report'
+
+                    echo 'Committing and pushing report to Git...'
+                    bat '''
+                        git config user.email "jenkins@example.com"
+                        git config user.name "Jenkins CI"
+
+                        git add allure-results allure-report
+                        git commit -m "Update Allure reports [ci skip]" || echo "No changes to commit"
+                    '''
+
+                    withCredentials([usernamePassword(credentialsId: "${GIT_CREDENTIALS_ID}", usernameVariable: 'GIT_USER', passwordVariable: 'GIT_PASS')]) {
+                        bat "git push https://${GIT_USER}:${GIT_PASS}@<YOUR_REPO_URL>.git ${BRANCH_NAME}"
+                    }
+                }
+            }
+        }
+
+        stage('Send reports through email') {
+            steps {
+                echo 'Sending reports through email...'
+                bat 'npm run send-mail'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Archiving test results and reports...'
+            archiveArtifacts artifacts: 'allure-results/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+
+            echo 'Publishing Allure report...'
+            allure([
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'allure-results']]
+            ])
+        }
+    }
+}
+ 

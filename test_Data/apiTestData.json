@@ -1,0 +1,10 @@
+{
+    "JoulezMetaData":{
+        "login":{
+            "endPoint":"authenticate"
+        },
+        "currentUserFamilyDetails":{
+            "endPoint":"userFamily/getCurrentUserFamilyDetails"
+        }
+    }
+}
