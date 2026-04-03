@@ -1,4 +1,3 @@
-import { LoginPage } from "./loginPage";
-import { BookCar } from "./bookCar";
-
-export{LoginPage,BookCar}
+import { PantaloonsPage } from "./pantaloons"
+import { SnitchPage } from "./snitch"
+export { PantaloonsPage, SnitchPage }

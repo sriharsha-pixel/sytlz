@@ -1,27 +1,11 @@
 {
-  "total": 5,
-  "passed": 4,
-  "failed": 1,
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
   "skipped": 0,
   "tests": [
     {
-      "name": "Creating auth token using valid user credentials",
-      "status": "passed"
-    },
-    {
-      "name": "Login using .env credentials",
-      "status": "passed"
-    },
-    {
-      "name": "Booking car",
-      "status": "passed"
-    },
-    {
-      "name": "Booking car by changing location",
-      "status": "failed"
-    },
-    {
-      "name": "Login with Excel data and store accountId and status in Excel",
+      "name": "Capture Women's Women_Trousers Data",
       "status": "passed"
     }
   ]
