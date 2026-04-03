@@ -1,6 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","44919","Booking car","chromium","Wed Aug 13 14:15:59 IST 2025","passed","Wed Aug 13 14:16:44 IST 2025","","UI_specFiles\bookCar.spec.js","",""
-"","1123","Creating auth token using valid user credentials","chromium","Wed Aug 13 14:15:59 IST 2025","passed","Wed Aug 13 14:16:00 IST 2025","","API_specFiles\login.spec.js","",""
-"","25397","Booking car by changing location","chromium","Wed Aug 13 14:16:44 IST 2025","failed","Wed Aug 13 14:17:10 IST 2025","","UI_specFiles\bookCar.spec.js","",""
-"","22157","Login using .env credentials","chromium","Wed Aug 13 14:15:59 IST 2025","passed","Wed Aug 13 14:16:22 IST 2025","Login Tests","UI_specFiles\login.spec.js","",""
-"","86611","Login with Excel data and store accountId and status in Excel","chromium","Wed Aug 13 14:16:22 IST 2025","passed","Wed Aug 13 14:17:49 IST 2025","Login Tests","UI_specFiles\login.spec.js","",""
