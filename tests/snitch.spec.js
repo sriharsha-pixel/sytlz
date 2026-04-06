@@ -14,7 +14,7 @@ if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir);
 
 for (const category of categories) {
     test.describe.parallel(`Category: ${category}`, () => {
-        test.only(`Scrape ${category}`, async ({ browser }) => {
+        test(`Scrape ${category}`, async ({ browser }) => {
             const page = await browser.newPage();
             const snitchPage = new sections.SnitchPage(test, page);
             await snitchPage.launchingApplication([process.env.snitchURL]);
