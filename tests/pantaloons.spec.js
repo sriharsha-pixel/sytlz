@@ -40,7 +40,7 @@ test.beforeAll(async ({ browser }) => {
         fs.mkdirSync(dataDir);
     }
 
-    await pantaloonsPage.launchingApplication([process.env.baseURL]);
+    await pantaloonsPage.launchingApplication([process.env.pantaloonsURL]);
 });
 
 

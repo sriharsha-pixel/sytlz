@@ -194,8 +194,8 @@ exports.PantaloonsPage = class PantaloonsPage {
     const description = product.description ? product.description : "No Description Available";
 
     return {
-      source: process.env.baseURL,
-      base_url: process.env.baseURL,
+      source: process.env.pantaloonsURL,
+      base_url: process.env.pantaloonsURL,
       title: title,
       product_url: productUrl,
       price: price,
